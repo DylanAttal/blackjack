@@ -50,7 +50,7 @@ const winnerDeclaration = () => {
     document.querySelector('.results').textContent = 'Player Wins!'
   } else if (playerTotalStay > dealerTotalStay) {
     document.querySelector('.results').textContent = 'Player Wins!'
-  } else if (dealerTotalStay > playerTotal) {
+  } else if (dealerTotalStay > playerTotalStay) {
     document.querySelector('.results').textContent = 'Dealer Wins!'
   } else if (playerTotalStay === dealerTotalStay) {
     document.querySelector('.results').textContent = "It's a tie!"
@@ -63,9 +63,8 @@ const dealCardToPlayer = () => {
   let playerHandList = document.querySelector('.player-hand')
   let card = deck.pop()
   playerHand.push(card.value)
-  let src = `/images/cards/${card.face}_of_${card.suit}.svg`
   let newImage = document.createElement('img')
-  newImage.src = src
+  newImage.src = `/images/cards/${card.face}_of_${card.suit}.svg`
   playerHandList.appendChild(newImage)
   console.log(playerHand)
   let playerTotal = playerHand.reduce(function(accumulator, currentValue) {
@@ -87,9 +86,8 @@ const dealCardToDealer = () => {
   let dealerHandList = document.querySelector('.dealer-hand')
   let card = deck.pop()
   dealerHand.push(card.value)
-  let src = `/images/cards/${card.face}_of_${card.suit}.svg`
   let newImage = document.createElement('img')
-  newImage.src = src
+  newImage.src = `/images/cards/${card.face}_of_${card.suit}.svg`
   dealerHandList.appendChild(newImage)
   console.log(dealerHand)
   let dealerTotal = dealerHand.reduce(function(accumulator, currentValue) {
@@ -114,9 +112,8 @@ const stay = () => {
     let dealerHandList = document.querySelector('.dealer-hand')
     let card = deck.pop()
     dealerHand.push(card.value)
-    let src = `/images/cards/${card.face}_of_${card.suit}.svg`
     let newImage = document.createElement('img')
-    newImage.src = src
+    newImage.src = `/images/cards/${card.face}_of_${card.suit}.svg`
     dealerHandList.appendChild(newImage)
     console.log(dealerHand)
     let dealerTotal = dealerHand.reduce(function(accumulator, currentValue) {
@@ -138,6 +135,10 @@ const stay = () => {
   }
   console.log(dealerTotalStay)
   console.log(playerTotalStay)
+}
+
+const reset = () => {
+  document.location.reload(true)
 }
 
 const main = () => {
@@ -165,6 +166,9 @@ const main = () => {
 
   let stayButton = document.querySelector('.stay-button')
   stayButton.addEventListener('click', stay)
+
+  let resetButton = document.querySelector('.reset-button')
+  resetButton.addEventListener('click', reset)
 }
 
 document.addEventListener('DOMContentLoaded', main)
