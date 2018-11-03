@@ -1,6 +1,7 @@
 html {
   height: 100%;
   color: #220c10;
+  background-color: #c0caad;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 }
 
 header {
-  background-color: #b81128;
+  background-color: #e62828;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -128,4 +129,56 @@ img {
 
 .results {
   text-align: center;
+}
+
+@media only screen and (min-width: 700px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  header {
+    height: 100px;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 1.25rem;
+    width: 110px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: #9aadbf;
+  }
+
+  .stay-button {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  img {
+    height: 200px;
+  }
+
+  .player-hand-title {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+
+  .dealer-hand-title {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+
+  .player-display-total {
+    font-size: 1.5rem;
+  }
+
+  .dealer-display-total {
+    font-size: 1.5rem;
+  }
 }
