@@ -66,12 +66,10 @@ const dealCardToPlayer = () => {
   let newImage = document.createElement('img')
   newImage.src = `/images/cards/${card.face}_of_${card.suit}.svg`
   playerHandList.appendChild(newImage)
-  console.log(playerHand)
   let playerTotal = playerHand.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue
   }, 0)
   playerTotalStay = playerTotal
-  console.log(playerTotal)
   if (playerTotal > 21) {
     playerBusts()
   } else {
@@ -89,12 +87,10 @@ const dealCardToDealer = () => {
   let newImage = document.createElement('img')
   newImage.src = `/images/cards/${card.face}_of_${card.suit}.svg`
   dealerHandList.appendChild(newImage)
-  console.log(dealerHand)
   let dealerTotal = dealerHand.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue
   }, 0)
   dealerTotalStay = dealerTotal
-  console.log(dealerTotal)
   if (dealerTotal > 21) {
     dealerBusts()
   } else {
@@ -106,8 +102,6 @@ const dealCardToDealer = () => {
 }
 
 const stay = () => {
-  console.log(dealerTotal)
-  console.log(dealerTotalStay)
   while (dealerTotalStay < 17) {
     let dealerHandList = document.querySelector('.dealer-hand')
     let card = deck.pop()
@@ -115,12 +109,10 @@ const stay = () => {
     let newImage = document.createElement('img')
     newImage.src = `/images/cards/${card.face}_of_${card.suit}.svg`
     dealerHandList.appendChild(newImage)
-    console.log(dealerHand)
     let dealerTotal = dealerHand.reduce(function(accumulator, currentValue) {
       return accumulator + currentValue
     }, 0)
     dealerTotalStay = dealerTotal
-    console.log(dealerTotal)
     if (dealerTotal > 21) {
       dealerBusts()
     } else {
@@ -133,8 +125,6 @@ const stay = () => {
   if (dealerTotalStay >= 17) {
     winnerDeclaration()
   }
-  console.log(dealerTotalStay)
-  console.log(playerTotalStay)
 }
 
 const reset = () => {
